@@ -1,0 +1,18 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type CatDto {
+  age: Int!
+  homeAddress: String!
+  id: String!
+  name: String!
+}
+
+type Mutation {
+  create(HomeAddress: String!, age: Int!, id: String!, name: String!): CatDto!
+}
+
+type Query {
+  getall: [CatDto!]!
+}
