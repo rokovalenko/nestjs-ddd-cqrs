@@ -10,7 +10,7 @@ type CatDto {
 }
 
 type Mutation {
-  create(HomeAddress: String!, age: Int!, id: String!, name: String!): CatDto!
+  create(HomeAddress: String!, age: Int!, name: String!): CatDto!
 }
 
 type Query {

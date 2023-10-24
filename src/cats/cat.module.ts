@@ -8,7 +8,10 @@ import { CreateCatHandler } from './app/command-handlers/createcat.handler';
 import { CatCreatedHandler } from './app/event-handlers/catcreated.handler';
 import { GetAllCatsHandler } from './app/query-handlers/getallcats.handler';
 import { InMemoryCatRepository } from './infrastructure/inmemory.cat.repository';
+import { Repository } from './infrastructure/repository';
 import { CatRepository } from './domain/repos/cat.repository';
+import { Cat } from './domain/cat.model';
+import { InMemory2CatRepository } from './infrastructure/inmemory2.cat.repository';
 
 export const CommandHandlers = [CreateCatHandler];
 export const EventHandlers = [CatCreatedHandler];
@@ -25,6 +28,10 @@ export const QueryHandlers = [GetAllCatsHandler];
   ],
   providers: [
     CatResolver,
+    {
+      provide: Repository<Cat, Cat>,
+      useClass: InMemory2CatRepository
+    },
     {
       provide: CatRepository,
       useClass: InMemoryCatRepository
